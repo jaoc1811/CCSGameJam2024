@@ -109,11 +109,11 @@ public class GameManager : MonoBehaviour
     }
 
     void ShuffleMinigames() {
-        var count = nextMinigames.Count;
-        var last = count - 1;
-        for (var i = 0; i < last; ++i) {
-            var r = Random.Range(i, count);
-            var tmp = nextMinigames[i];
+        int count = nextMinigames.Count;
+        int last = count - 1;
+        for (int i = 0; i < last; ++i) {
+            int r = Random.Range(i, count);
+            string tmp = nextMinigames[i];
             nextMinigames[i] = nextMinigames[r];
             nextMinigames[r] = tmp;
         }
