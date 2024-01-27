@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Roses : MonoBehaviour
@@ -26,13 +24,12 @@ public class Roses : MonoBehaviour
         currentRoses += 1;
         other.gameObject.GetComponent<Dragable>().deactivate();
         if (currentRoses >= targetRoses) {
-            EndGame();
+            WinStage();
         }
     }
 
-    private void EndGame() {
+    private void WinStage() {
         // TODO: Trigger success animation/sounds
-        // TODO: Trigger curtains
-        // TODO: Set cleared as true
+        GameManager.instance.WinStage();
     }
 }

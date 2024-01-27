@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OraOra.unity
     guid: 9263250cdd9e7864ca601041e2af9721
+  - enabled: 1
+    path: Assets/Scenes/Mole.unity
+    guid: 54867bd303017554680456d7ef17bbfb
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

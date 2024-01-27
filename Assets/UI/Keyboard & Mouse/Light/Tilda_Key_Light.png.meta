@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tilda_Key_Light_0: -2992864788321559001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
