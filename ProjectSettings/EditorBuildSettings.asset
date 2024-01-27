@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Transition.unity
     guid: 67f536efa06fef24386fbd29e80b3ae4
@@ -20,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tickles.unity
     guid: 4d3f580eb16929b4db8e63c21788fe99
+  - enabled: 1
+    path: Assets/Scenes/OraOra.unity
+    guid: 9263250cdd9e7864ca601041e2af9721
+  - enabled: 1
+    path: Assets/Scenes/Mole.unity
+    guid: 54867bd303017554680456d7ef17bbfb
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
