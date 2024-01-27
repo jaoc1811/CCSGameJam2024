@@ -9,6 +9,8 @@ public class Tickles : MonoBehaviour
     [SerializeField] float maxRotation;
     [SerializeField] Transform feather;
     [SerializeField] Transform otherFeet;
+    [SerializeField] int timeLimit = 8;
+
     bool inFeet;
     bool isMoving;
     public bool tickles;
@@ -17,7 +19,7 @@ public class Tickles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.StartStage();
+        GameManager.instance.StartStage(timeLimit);
         inFeet = false;
         lastPosition = feather.position;
     }

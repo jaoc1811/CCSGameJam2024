@@ -10,6 +10,8 @@ public class Pedrito : MonoBehaviour
     [SerializeField] float intensity = 0.1f;
     [SerializeField] float electrocuteDuration = 0.2f;
     [SerializeField] int goal = 6;
+    [SerializeField] int timeLimit = 8;
+
     bool isElectrocuting = false;
 
     Vector3 startingPosition;
@@ -20,12 +22,14 @@ public class Pedrito : MonoBehaviour
             StartCoroutine(electrocute());
         } else {
             isElectrocuting = true;
+            WinStage();
         }
 
     }
 
     void Start () {
         startingPosition = npc.transform.position;
+        GameManager.instance.StartStage(timeLimit);
     }
     // Update is called once per frame
     void Update () {
@@ -42,5 +46,9 @@ public class Pedrito : MonoBehaviour
         isElectrocuting = true;
         yield return new WaitForSeconds(electrocuteDuration);
         isElectrocuting = false;
+    }
+
+    private void WinStage() {
+        GameManager.instance.WinStage();
     }
 }
