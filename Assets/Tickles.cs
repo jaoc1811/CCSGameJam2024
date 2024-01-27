@@ -40,7 +40,6 @@ public class Tickles : MonoBehaviour
             tickleCount++;
             if (tickleCount > 100) {
                 otherFeet.GetComponent<Tickles>().isMoving = true;
-                GameManager.instance.WinStage();
             }
         } else {
             tickles = false;
@@ -59,5 +58,9 @@ public class Tickles : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) {
         inFeet = false;
+    }
+
+    private void EndGame() {
+        GameManager.instance.WinStage();
     }
 }

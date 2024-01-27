@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SV.unity
     guid: 1693257f5dee00c43bc935a169b4c969
+  - enabled: 1
+    path: Assets/Scenes/Pedrito.unity
+    guid: 8a8799a517451114a91eb6aac8f219bf
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
