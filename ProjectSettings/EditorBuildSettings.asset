@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pedrito.unity
     guid: 8a8799a517451114a91eb6aac8f219bf
+  - enabled: 1
+    path: Assets/Scenes/Tickles.unity
+    guid: 4d3f580eb16929b4db8e63c21788fe99
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
