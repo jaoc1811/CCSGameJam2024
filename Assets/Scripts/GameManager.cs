@@ -67,10 +67,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(stage);
     }
 
-    public void StartStage(){
+    public void StartStage(int stageTime = -1){
         Debug.Log("Starting stage");
+        if (stageTime == -1) stageTime = initialTime;
         StageCleared = false;
-        Time = initialTime;
+        Time = stageTime;
         timerCoroutine = StartCoroutine(TimerRoutine());
     }
 
@@ -83,9 +84,7 @@ public class GameManager : MonoBehaviour
     [ContextMenu("WinStage")]
     public void WinStage(){
         Debug.Log("Win stage");
-        StopCoroutine(timerCoroutine);
         StageCleared = true;
-        EndStage();
     }
 
     IEnumerator TimerRoutine() {
@@ -94,7 +93,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             Time--;
         }
-        Debug.Log("Lose stage");
         EndStage();
     }
 
