@@ -26,11 +26,11 @@ public class Roses : MonoBehaviour
         currentRoses += 1;
         other.gameObject.GetComponent<Dragable>().deactivate();
         if (currentRoses >= targetRoses) {
-            endGame();
+            EndGame();
         }
     }
 
-    private void endGame() {
+    private void EndGame() {
         // TODO: Trigger success animation/sounds
         // TODO: Trigger curtains
         // TODO: Set cleared as true
