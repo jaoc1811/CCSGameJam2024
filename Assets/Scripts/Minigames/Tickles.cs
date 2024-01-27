@@ -46,8 +46,8 @@ public class Tickles : MonoBehaviour
         }
 
         if (tickles || winTickles) {
-            float buoyancyRotation = Mathf.PingPong(Time.time * rotationSpeed, maxRotation) - (maxRotation/2);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.y,transform.eulerAngles.y,buoyancyRotation);
+            float rotation = Mathf.PingPong(Time.time * rotationSpeed, maxRotation) - (maxRotation/2);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.y,transform.eulerAngles.y,rotation);
         }
 
     }

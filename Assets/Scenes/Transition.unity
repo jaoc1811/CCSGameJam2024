@@ -161,6 +161,7 @@ MonoBehaviour:
   - Mole
   - Esquivo
   - Balloon
+  - PerroSalchicha
   initialTime: 8
   time: 10
 --- !u!4 &307029790
