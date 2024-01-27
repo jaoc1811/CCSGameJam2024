@@ -99,13 +99,13 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("SelectNextMinigame")]
-    string SelectNextMinigame() {
+    void SelectNextMinigame() {
         if (currentMinigames.Count == 0){
             ShuffleMinigames();
             currentMinigames = new Queue<string>(nextMinigames);
         }
         string nextMinigame = currentMinigames.Dequeue();
-        return nextMinigame;
+        LoadStage(nextMinigame);
     }
 
     void ShuffleMinigames() {

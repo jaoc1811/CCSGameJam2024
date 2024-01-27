@@ -17,6 +17,7 @@ public class Tickles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.StartStage();
         inFeet = false;
         lastPosition = feather.position;
     }
@@ -39,6 +40,7 @@ public class Tickles : MonoBehaviour
             tickleCount++;
             if (tickleCount > 100) {
                 otherFeet.GetComponent<Tickles>().isMoving = true;
+                GameManager.instance.WinStage();
             }
         } else {
             tickles = false;

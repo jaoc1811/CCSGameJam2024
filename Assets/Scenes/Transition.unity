@@ -155,13 +155,9 @@ MonoBehaviour:
   main: Transition
   gameOver: 
   nextMinigames:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  initialTime: 20
-  time: 20
+  - Pedrito
+  initialTime: 6
+  time: 10
 --- !u!4 &307029790
 Transform:
   m_ObjectHideFlags: 0
