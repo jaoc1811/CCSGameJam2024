@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] string menu;
     [SerializeField] string main;
     [SerializeField] string gameOver;
-    [SerializeField] string[] minigames;
+    [SerializeField] Queue<string> currentMinigames;
+    [SerializeField] List<string> nextMinigames;
 
     [Header("Timer")]
     [SerializeField] int initialTime = 20;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameStarting = true;
+        currentMinigames = new Queue<string>();
     }
 
     void Update()
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(main);
     }
 
-    [ContextMenu("WinStage")] 
+    [ContextMenu("WinStage")]
     public void WinStage(){
         Debug.Log("Win stage");
         StopCoroutine(timerCoroutine);
@@ -94,5 +96,26 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("Lose stage");
         EndStage();
+    }
+
+    [ContextMenu("SelectNextMinigame")]
+    string SelectNextMinigame() {
+        if (currentMinigames.Count == 0){
+            ShuffleMinigames();
+            currentMinigames = new Queue<string>(nextMinigames);
+        }
+        string nextMinigame = currentMinigames.Dequeue();
+        return nextMinigame;
+    }
+
+    void ShuffleMinigames() {
+        var count = nextMinigames.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i) {
+            var r = Random.Range(i, count);
+            var tmp = nextMinigames[i];
+            nextMinigames[i] = nextMinigames[r];
+            nextMinigames[r] = tmp;
+        }
     }
 }
