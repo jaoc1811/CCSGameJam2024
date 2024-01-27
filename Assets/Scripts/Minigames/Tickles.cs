@@ -7,13 +7,13 @@ public class Tickles : MonoBehaviour
 
     [SerializeField] float rotationSpeed;
     [SerializeField] float maxRotation;
-    [SerializeField] Transform feather;
+    [SerializeField] GameObject feather;
     [SerializeField] Transform otherFeet;
     [SerializeField] int timeLimit = 8;
-
     bool inFeet;
     bool isMoving;
-    public bool tickles;
+    bool tickles;
+    public bool winTickles;
     Vector3 lastPosition;
     int tickleCount;
     // Start is called before the first frame update
@@ -21,34 +21,31 @@ public class Tickles : MonoBehaviour
     {
         GameManager.instance.StartStage(timeLimit);
         inFeet = false;
-        lastPosition = feather.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (inFeet) {
-            if ( feather.position != lastPosition )
-                isMoving = true;
-            else
-                isMoving = false;
-            lastPosition = feather.position;
-        }
+        lastPosition = feather.transform.position;
     }
 
     void FixedUpdate() {
+        if (inFeet) {
+            if ( feather.transform.position != lastPosition )
+                isMoving = true;
+            else {
+                isMoving = false;
+            }
+        } else {
+            isMoving = false;
+        }
+        lastPosition = feather.transform.position;
         if (isMoving) {
             tickles = true;
             tickleCount++;
-            if (tickleCount > 100) {
-                otherFeet.GetComponent<Tickles>().isMoving = true;
+            if (tickleCount > 50) {
                 WinStage();
             }
         } else {
             tickles = false;
         }
 
-        if (tickles) {
+        if (tickles || winTickles) {
             float buoyancyRotation = Mathf.PingPong(Time.time * rotationSpeed, maxRotation) - (maxRotation/2);
             transform.eulerAngles = new Vector3(transform.eulerAngles.y,transform.eulerAngles.y,buoyancyRotation);
         }
@@ -64,6 +61,9 @@ public class Tickles : MonoBehaviour
     }
 
     private void WinStage() {
+        otherFeet.GetComponent<Tickles>().winTickles = true;
+        winTickles = true;
+        feather.GetComponent<Dragable>().deactivate();
         GameManager.instance.WinStage();
     }
 }

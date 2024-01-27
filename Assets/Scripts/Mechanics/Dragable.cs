@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class Dragable : MonoBehaviour
 {
     Vector3 mousePosition;
-    bool active = true;
+    public bool active = true;
 
     public void deactivate() {
         active = false;

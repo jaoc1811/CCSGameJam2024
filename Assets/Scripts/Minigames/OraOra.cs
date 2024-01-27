@@ -22,10 +22,6 @@ public class OraOra : MonoBehaviour
             goal--;
             StartCoroutine(punch());
         } else {
-            rotation = true;
-            StartCoroutine(1.5f.Tweeng((p)=>enemy.position=p, enemy.position, launchPosition));
-            StartCoroutine(1.5f.Tweeng((s)=>enemy.localScale=s, enemy.localScale, launchScale));
-            StartCoroutine(Rotate());
             WinStage();
         }
     }
@@ -62,6 +58,10 @@ public class OraOra : MonoBehaviour
     }
 
     private void WinStage() {
+        rotation = true;
+        StartCoroutine(1.5f.Tweeng((p)=>enemy.position=p, enemy.position, launchPosition));
+        StartCoroutine(1.5f.Tweeng((s)=>enemy.localScale=s, enemy.localScale, launchScale));
+        StartCoroutine(Rotate());
         GameManager.instance.WinStage();
     }
 }

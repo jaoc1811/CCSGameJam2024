@@ -21,7 +21,6 @@ public class Pedrito : MonoBehaviour
             goal--;
             StartCoroutine(electrocute());
         } else {
-            isElectrocuting = true;
             WinStage();
         }
 
@@ -49,6 +48,7 @@ public class Pedrito : MonoBehaviour
     }
 
     private void WinStage() {
+        isElectrocuting = true;
         GameManager.instance.WinStage();
     }
 }
