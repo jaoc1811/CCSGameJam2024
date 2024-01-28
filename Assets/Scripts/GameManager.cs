@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void StartStage(int stageTime = -1){
         Debug.Log("Starting stage");
-        if (stageTime == -1) stageTime = initialTime;
+        if (stageTime < 0) stageTime = initialTime;
         StageCleared = false;
         Time = stageTime;
         timerCoroutine = StartCoroutine(TimerRoutine());
