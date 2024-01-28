@@ -7,6 +7,7 @@ public class Mole : MonoBehaviour
     [SerializeField] Transform[] holes;
     [SerializeField] float distanceToMove = 1;
     [SerializeField] float timeToMove = 0.5f;
+    [SerializeField] float timeHiding = 1f;
     [SerializeField] float garbageChance = 0.1f;
     [SerializeField] Transform garbage;
     Transform currentMole;
@@ -24,7 +25,7 @@ public class Mole : MonoBehaviour
         Vector3 startPosition = currentMole.transform.position;
         Vector3 finalPosition = currentMole.transform.position - new Vector3(0, distanceToMove, 0);
         StartCoroutine(timeToMove.Tweeng((p) => currentMole.transform.position = p, startPosition, finalPosition));
-        StartCoroutine(WaitAndRun(ComeOut));
+        StartCoroutine(WaitAndRun(ComeOut, timeHiding));
     }
 
     [ContextMenu("Out")]
@@ -34,7 +35,7 @@ public class Mole : MonoBehaviour
         Vector3 startPosition = currentMole.transform.position;
         Vector3 finalPosition = currentMole.transform.position + new Vector3(0, distanceToMove, 0);
         StartCoroutine(timeToMove.Tweeng((p) => currentMole.transform.position = p, startPosition, finalPosition));
-        StartCoroutine(WaitAndRun(Hide));
+        StartCoroutine(WaitAndRun(Hide, 0f));
     }
 
     void ChooseMole() {
@@ -65,8 +66,8 @@ public class Mole : MonoBehaviour
         GameManager.instance.WinStage();
     }
 
-    IEnumerator WaitAndRun(Action action) {
-        yield return new WaitForSeconds(timeToMove);
+    IEnumerator WaitAndRun(Action action, float extraTime) {
+        yield return new WaitForSeconds(timeToMove + extraTime);
         action();
     }
 

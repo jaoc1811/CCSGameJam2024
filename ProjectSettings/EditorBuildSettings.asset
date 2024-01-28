@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PerroSalchicha.unity
     guid: 82a288d2c17963f46a350778233adff4
+  - enabled: 1
+    path: Assets/Scenes/Roses.unity
+    guid: b40f88f6b6a09924e993b6e47cd16109
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

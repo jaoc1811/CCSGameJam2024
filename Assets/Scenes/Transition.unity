@@ -162,6 +162,7 @@ MonoBehaviour:
   - Esquivo
   - Balloon
   - PerroSalchicha
+  - Roses
   initialTime: 8
   time: 10
   selectTimer: 3
