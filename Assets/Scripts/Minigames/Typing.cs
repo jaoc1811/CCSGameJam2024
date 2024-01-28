@@ -7,7 +7,6 @@ using UnityEngine.UI;
 using TMPro;
 
 using Random = UnityEngine.Random;
-using TMPro;
 
 public class Typing : MonoBehaviour
 {
