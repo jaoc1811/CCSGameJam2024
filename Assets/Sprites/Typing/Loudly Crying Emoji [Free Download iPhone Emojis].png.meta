@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03aab95724d5bed42af5e25df16ccdf4
+guid: 2a6f6f94f48ba644b8e767a67e2c3f4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6629032291166732649
-    second: purepng.com-png-background-checkboard-patternpngbackgroundcheckboardpatternpurepng-691522544567tziig_0
+      213: 5652303605564160042
+    second: Loudly Crying Emoji [Free Download iPhone Emojis]_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,33 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purepng.com-png-background-checkboard-patternpngbackgroundcheckboardpatternpurepng-691522544567tziig_0
+      name: Loudly Crying Emoji [Free Download iPhone Emojis]_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1080
-        height: 1080
+        y: 9
+        width: 640
+        height: 643
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79eb968d042f004a0800000000000000
-      internalID: -6629032291166732649
+      spriteID: a28bf4c9e24017e40800000000000000
+      internalID: 5652303605564160042
       vertices: []
       indices: 
       edges: []
@@ -157,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      purepng.com-png-background-checkboard-patternpngbackgroundcheckboardpatternpurepng-691522544567tziig_0: -6629032291166732649
+      Loudly Crying Emoji [Free Download iPhone Emojis]_0: 5652303605564160042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
