@@ -62,7 +62,7 @@ public class BalloonPump : MonoBehaviour
     }
 
     void WinStage() {
-        AudioSource.PlayClipAtPoint(wooh, Camera.main.transform.position, 0.3f);
+        AudioSource.PlayClipAtPoint(wooh, Camera.main.transform.position, 0.1f);
         clown.GetComponent<Animator>().enabled = true;
         GameManager.instance.WinStage();
     }
