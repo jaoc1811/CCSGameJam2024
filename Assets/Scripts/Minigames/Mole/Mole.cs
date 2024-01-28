@@ -13,6 +13,7 @@ public class Mole : MonoBehaviour
     [SerializeField] Transform garbage;
     [SerializeField] Sprite successSprite;
     [SerializeField] Animator failAnimation;
+    [SerializeField] AudioClip hitSound;
     Transform currentMole;
     public bool clickable = false;
 
@@ -65,7 +66,7 @@ public class Mole : MonoBehaviour
     }
 
     void WinStage() {
-        // TODO: Trigger success animation/sounds
+        AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, 0.3f);
         StopAllCoroutines();
         gameObject.GetComponent<SpriteRenderer>().sprite = successSprite;
         gameObject.transform.localScale = new Vector3(1,1,1);

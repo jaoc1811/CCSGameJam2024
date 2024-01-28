@@ -358,6 +358,7 @@ MonoBehaviour:
   timeText: {fileID: 0}
   curtains: {fileID: 1635893827}
   curtainsTimer: 1
+  balloonSound: {fileID: 8300000, guid: 408c828903c13264298a0542a9362858, type: 3}
 --- !u!4 &307029790
 Transform:
   m_ObjectHideFlags: 0

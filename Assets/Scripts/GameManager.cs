@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] RectTransform curtains;
     [SerializeField] float curtainsTimer;
 
+    [SerializeField] AudioClip balloonSound;
     Coroutine timerCoroutine = null;
 
     public int Time {
@@ -148,6 +149,7 @@ public class GameManager : MonoBehaviour
     void loseLife() {
         lives -= 1 ;
         Transform livesSprites = GameObject.Find("Lives").transform;
+        AudioSource.PlayClipAtPoint(balloonSound, Camera.main.transform.position, 0.3f);
         livesSprites.GetChild(lives).GetComponent<Animator>().enabled = true;
     }
 
