@@ -6,6 +6,7 @@ public class Roses : MonoBehaviour
 {
     [SerializeField] int targetRoses = 5;
     [SerializeField] int currentRoses = 0;
+    [SerializeField] int timeLimit = 8;
     [SerializeField] Sprite BlinkSprite;
     [SerializeField] Sprite OpenEyesSprite;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -14,7 +15,7 @@ public class Roses : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        GameManager.instance.StartStage();
+        GameManager.instance.StartStage(Color.black, timeLimit);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

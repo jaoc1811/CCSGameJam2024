@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class Typing : MonoBehaviour
 {
+    [SerializeField] int timeLimit = 15;
     [SerializeField] string lettersPool = "ahj";
     [SerializeField] int wordLength = 5;
     [SerializeField] TMP_Text[] text;
@@ -29,7 +30,7 @@ public class Typing : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.StartStage();
+        GameManager.instance.StartStage(Color.black, timeLimit);
         nextLetterIndex = 0;
         laugh = GenerateRandomString();
         Debug.Log(laugh);
