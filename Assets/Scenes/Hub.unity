@@ -152,7 +152,7 @@ MonoBehaviour:
   stageCleared: 0
   gameStarting: 1
   menu: 
-  main: Transition
+  main: Hub
   gameOver: 
   nextMinigames:
   - OraOra
@@ -166,6 +166,8 @@ MonoBehaviour:
   initialTime: 8
   time: 10
   selectTimer: 3
+  curtains: {fileID: 774393113}
+  curtainsTimer: 1
 --- !u!4 &307029790
 Transform:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: -2685877375045974545, guid: d6ba27e6619d0e041b3c898c7b259a93, type: 3}
   m_Color: {r: 0.5377358, g: 0, b: 0, a: 1}
   m_FlipX: 0
