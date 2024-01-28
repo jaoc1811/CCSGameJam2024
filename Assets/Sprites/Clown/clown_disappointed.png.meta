@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clown_disappointed_0: -3786563552142441376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
