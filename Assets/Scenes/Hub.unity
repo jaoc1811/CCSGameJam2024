@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 661276004}
   - component: {fileID: 661276005}
   - component: {fileID: 661276006}
+  - component: {fileID: 661276007}
   m_Layer: 0
   m_Name: Life 3
   m_TagString: Untagged
@@ -294,6 +295,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &661276007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661276003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043f18e3e25597b40a8a9af55c791cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeNumber: 3
 --- !u!1 &720301564
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +390,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5196297229303063237, guid: 36c4455aacf56bb48808095a2de67205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -500,6 +514,7 @@ GameObject:
   - component: {fileID: 779945645}
   - component: {fileID: 779945646}
   - component: {fileID: 779945647}
+  - component: {fileID: 779945648}
   m_Layer: 0
   m_Name: Life 2
   m_TagString: Untagged
@@ -598,6 +613,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &779945648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779945644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043f18e3e25597b40a8a9af55c791cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeNumber: 2
 --- !u!1 &883966031
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +637,7 @@ GameObject:
   - component: {fileID: 883966032}
   - component: {fileID: 883966033}
   - component: {fileID: 883966034}
+  - component: {fileID: 883966035}
   m_Layer: 0
   m_Name: Life 1
   m_TagString: Untagged
@@ -707,6 +736,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &883966035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883966031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043f18e3e25597b40a8a9af55c791cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeNumber: 1
 --- !u!1 &958601560
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +846,7 @@ GameObject:
   - component: {fileID: 1555548814}
   - component: {fileID: 1555548816}
   - component: {fileID: 1555548815}
+  - component: {fileID: 1555548817}
   m_Layer: 0
   m_Name: Life 0
   m_TagString: Untagged
@@ -902,6 +945,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1555548817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555548813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043f18e3e25597b40a8a9af55c791cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeNumber: 0
 --- !u!1 &1580653367
 GameObject:
   m_ObjectHideFlags: 0

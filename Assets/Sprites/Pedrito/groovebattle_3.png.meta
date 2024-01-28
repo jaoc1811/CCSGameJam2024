@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      groovebattle_3_0: -3745443505459521823
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
