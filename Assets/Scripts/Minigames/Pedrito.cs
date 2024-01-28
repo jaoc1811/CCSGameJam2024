@@ -16,6 +16,7 @@ public class Pedrito : MonoBehaviour
     [SerializeField] AudioClip click;
 
     bool isElectrocuting = false;
+    bool isElectrocutingWin = false;
 
     Vector3 startingPosition;
 
@@ -37,7 +38,7 @@ public class Pedrito : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
-        if (isElectrocuting) {
+        if (isElectrocuting || isElectrocutingWin) {
             npc.transform.position = startingPosition + intensity * new Vector3 (
                 Mathf.PerlinNoise(speed * Time.time, 1),
                 Mathf.PerlinNoise(speed * Time.time, 2),
@@ -60,7 +61,7 @@ public class Pedrito : MonoBehaviour
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().clip = meElectrocutastePedrito;   
         GetComponent<AudioSource>().Play();
-        isElectrocuting = true;
+        isElectrocutingWin = true;
         // GameManager.instance.WinStage();
     }
 }

@@ -10,6 +10,8 @@ public class BalloonPump : MonoBehaviour
     [SerializeField] Transform clown;
     [SerializeField] float balloonInflate;
     [SerializeField] float balloonMaxScale;
+    [SerializeField] AudioClip pumpSound;
+    [SerializeField] AudioClip wooh;
     Vector3 initialPosition;
     Vector3 screenPosition;
     bool active = true;
@@ -49,6 +51,7 @@ public class BalloonPump : MonoBehaviour
         }
         else if (other.name == "Down" && pumpable==true) {
             pumpable = false;
+            AudioSource.PlayClipAtPoint(pumpSound, Camera.main.transform.position, 0.3f);
             balloon.localScale += Vector3.one*balloonInflate;
             if (balloon.localScale.x >= balloonMaxScale) {
                 WinStage();
@@ -58,6 +61,7 @@ public class BalloonPump : MonoBehaviour
     }
 
     void WinStage() {
+        AudioSource.PlayClipAtPoint(wooh, Camera.main.transform.position, 0.3f);
         clown.GetComponent<Animator>().enabled = true;
         GameManager.instance.WinStage();
     }
