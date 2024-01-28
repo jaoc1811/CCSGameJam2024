@@ -10,12 +10,15 @@ public class Tickles : MonoBehaviour
     [SerializeField] GameObject feather;
     [SerializeField] Transform otherFeet;
     [SerializeField] int timeLimit = 8;
+    [SerializeField] AudioClip tickleSound;
+    [SerializeField] AudioClip laughSound;
     bool inFeet;
     bool isMoving;
     bool tickles;
     public bool winTickles;
     Vector3 lastPosition;
     int tickleCount;
+    bool laugh;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +39,13 @@ public class Tickles : MonoBehaviour
         }
         lastPosition = feather.transform.position;
         if (isMoving) {
+            if (!GetComponent<AudioSource>().isPlaying) {
+                GetComponent<AudioSource>().PlayOneShot(tickleSound);
+            }
             tickles = true;
             tickleCount++;
             if (tickleCount > 50) {
+                laugh = true;
                 WinStage();
             }
         } else {
@@ -48,6 +55,12 @@ public class Tickles : MonoBehaviour
         if (tickles || winTickles) {
             float rotation = Mathf.PingPong(Time.time * rotationSpeed, maxRotation) - (maxRotation/2);
             transform.eulerAngles = new Vector3(transform.eulerAngles.y,transform.eulerAngles.y,rotation);
+        }
+
+        if (laugh) {
+            if (!GetComponent<AudioSource>().isPlaying) {
+                GetComponent<AudioSource>().PlayOneShot(laughSound);
+            }
         }
 
     }
