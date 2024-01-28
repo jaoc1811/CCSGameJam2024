@@ -52,6 +52,7 @@ public class Pedrito : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(meElectrocutaste);
         }
         isElectrocuting = true;
+        npc.transform.localScale = new Vector3(-npc.transform.localScale.x, npc.transform.localScale.y, transform.localScale.z);
         yield return new WaitForSeconds(electrocuteDuration);
         isElectrocuting = false;
     }
@@ -62,6 +63,15 @@ public class Pedrito : MonoBehaviour
         GetComponent<AudioSource>().clip = meElectrocutastePedrito;   
         GetComponent<AudioSource>().Play();
         isElectrocutingWin = true;
-        // GameManager.instance.WinStage();
+        npc.GetComponent<Animator>().enabled = true;
+        StartCoroutine(Turn());
+        GameManager.instance.WinStage();
     }
+
+    IEnumerator Turn() {
+        npc.transform.localScale = new Vector3(-npc.transform.localScale.x, npc.transform.localScale.y, transform.localScale.z);
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(Turn());
+    }
+
 }

@@ -26,7 +26,6 @@ public class OraOra : MonoBehaviour
         if (!Char.IsWhiteSpace(c)) return;
         if (goal > 0) {
             goal--;
-            // StopCoroutine(punch());
             StartCoroutine(punch());
         } else {
             WinStage();
@@ -42,7 +41,7 @@ public class OraOra : MonoBehaviour
     void Start () {
         startingPosition = enemy.transform.position;
         AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position, 0.3f);  
-        // GameManager.instance.StartStage(timeLimit);
+        GameManager.instance.StartStage(timeLimit);
     }
 
     // Update is called once per frame
@@ -81,6 +80,6 @@ public class OraOra : MonoBehaviour
         StartCoroutine(1.5f.Tweeng((s)=>enemy.transform.localScale=s, enemy.transform.localScale, launchScale));
         StartCoroutine(Rotate());
         enemy.GetComponent<SpriteRenderer>().sprite = deadDio;
-        // GameManager.instance.WinStage();
+        GameManager.instance.WinStage();
     }
 }
