@@ -67,8 +67,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(curtains.parent);
+        curtains.localPosition = new Vector3(0, 0, 0);
         GameStarting = true;
         currentMinigames = new Queue<string>();
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame() {
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 625, 0)));
+        yield return new WaitForSeconds(1);
         StartCoroutine(SelectNextgame());
     }
 

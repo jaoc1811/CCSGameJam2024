@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 63859f624bcded748b228e0d693b4be6
+  - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: 67f536efa06fef24386fbd29e80b3ae4
-  - enabled: 1
-    path: Assets/Scenes/SV.unity
-    guid: 1693257f5dee00c43bc935a169b4c969
   - enabled: 1
     path: Assets/Scenes/Pedrito.unity
     guid: 8a8799a517451114a91eb6aac8f219bf
