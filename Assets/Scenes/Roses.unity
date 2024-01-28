@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4eed32263a7eb449d11bceeff31ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRoses: 2
+  targetRoses: 5
   currentRoses: 0
   timeLimit: 8
   BlinkSprite: {fileID: -5616466900176143792, guid: e768fd916bf94704aa8f17562df0d510, type: 3}
