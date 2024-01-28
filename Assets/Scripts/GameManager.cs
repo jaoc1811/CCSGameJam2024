@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int selectTimer = 2;
 
     [Header("Curtains")]
-    [SerializeField] Transform curtains;
+    [SerializeField] RectTransform curtains;
     [SerializeField] float curtainsTimer;
 
     Coroutine timerCoroutine = null;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(curtains);
+        DontDestroyOnLoad(curtains.parent);
         GameStarting = true;
         currentMinigames = new Queue<string>();
         StartCoroutine(SelectNextgame());
@@ -105,11 +105,11 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator LoadStageWithCurtains(string stage, bool hub = false) {
-        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.position = p, new Vector3(0, 10, 0), new Vector3(0, 0, 0)));
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 625, 0), new Vector3(0, 0, 0)));
         Debug.Log("DOWN CURTAINS");
         yield return new WaitForSeconds(curtainsTimer);
         LoadStage(stage);
-        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.position = p, new Vector3(0, 0, 0), new Vector3(0, 10, 0)));
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 625, 0)));
         Debug.Log("UP CURTAINS");
         yield return new WaitForSeconds(curtainsTimer);
         if (hub) {
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
             } else {
                 Debug.Log("FAIL");
                 loseLife();
-                // TODO: Lose life and trigger sad animation
+                // TODO: trigger sad animation
             }
         }
         yield return new WaitForSeconds(selectTimer);

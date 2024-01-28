@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      perrosalchicha_0: -2085300820786486686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
