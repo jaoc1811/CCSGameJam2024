@@ -18,6 +18,14 @@ public class Typing : MonoBehaviour
     [SerializeField] AudioClip typeSound;
     [SerializeField] AudioClip sendSound;
     [SerializeField] AudioClip recieveSound;
+    [SerializeField] TMP_Text message1;
+    [SerializeField] Transform emoji1;
+    [SerializeField] Transform emoji2;
+    [SerializeField] SpriteRenderer background;
+    [SerializeField] Sprite oneMessage;
+    [SerializeField] Sprite twoMessage;
+    [SerializeField] Sprite loseMessage;
+    bool lost = false;
     string laugh;
 
     void Start()
@@ -32,19 +40,22 @@ public class Typing : MonoBehaviour
     }
 
     void Keypress(char c){
-        if (nextLetterIndex < laugh.Length && (Char.IsLetter(c) || Char.IsDigit(c))) {
-            char nextLetter = laugh[nextLetterIndex];
-            Debug.Log("Next: " + nextLetter);
-            if (c != nextLetter){
-                Debug.Log("Lose");
-            }else {
-                text[nextLetterIndex].color = Color.black;
-                AudioSource.PlayClipAtPoint(typeSound, Camera.main.transform.position, 0.3f);
-                nextLetterIndex++;
-            }
-            
-            if (nextLetterIndex == laugh.Length){
-                WinStage();
+        if (!lost) {
+            if (nextLetterIndex < laugh.Length && (Char.IsLetter(c) || Char.IsDigit(c))) {
+                char nextLetter = laugh[nextLetterIndex];
+                Debug.Log("Next: " + nextLetter);
+                if (c != nextLetter){
+                    LoseStage();
+                }else {
+                    text[nextLetterIndex].color = Color.black;
+                    text[nextLetterIndex].fontStyle = FontStyles.Bold;
+                    AudioSource.PlayClipAtPoint(typeSound, Camera.main.transform.position, 0.3f);
+                    nextLetterIndex++;
+                }
+                
+                if (nextLetterIndex == laugh.Length){
+                    WinStage();
+                }
             }
         }
     }
@@ -56,6 +67,11 @@ public class Typing : MonoBehaviour
         return new string(chars.ToArray());
     }
 
+    private void LoseStage() {
+        lost = true;
+        StartCoroutine(LoseRoutine());
+    }
+
     private void WinStage() {
         GameManager.instance.WinStage();
         StartCoroutine(SendReceive());
@@ -63,7 +79,18 @@ public class Typing : MonoBehaviour
 
     IEnumerator SendReceive() {
         AudioSource.PlayClipAtPoint(sendSound, Camera.main.transform.position, 0.3f);
+        background.sprite = oneMessage;
+        message1.text = laugh;
         yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(recieveSound, Camera.main.transform.position, 0.3f);
+        background.sprite = twoMessage;
+        emoji1.gameObject.SetActive(true);
+    }
+
+    IEnumerator LoseRoutine() {
+        yield return new WaitForSeconds(0.5f);
+        AudioSource.PlayClipAtPoint(sendSound, Camera.main.transform.position, 0.3f);
+        background.sprite = loseMessage;
+        emoji2.gameObject.SetActive(true);
     }
 }

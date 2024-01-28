@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      purepng.com-png-background-checkboard-patternpngbackgroundcheckboardpatternpurepng-691522544567tziig_0: -6629032291166732649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
