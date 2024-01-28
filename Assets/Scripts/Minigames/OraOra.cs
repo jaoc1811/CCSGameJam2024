@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OraOra : MonoBehaviour
 {
-    [SerializeField] Transform enemy;
+    [SerializeField] GameObject enemy;
     [SerializeField] float speed = 5f;
     [SerializeField] float intensity = 0.1f;
     [SerializeField] float punchDuration = 0.2f;
@@ -14,6 +14,8 @@ public class OraOra : MonoBehaviour
     [SerializeField] AudioClip lastOra;
     [SerializeField] AudioClip wryyy;
     [SerializeField] AudioClip starPlatinum;
+    [SerializeField] Sprite aliveDio;
+    [SerializeField] Sprite deadDio;
     bool isBeingPunched = false;
     bool rotation = false;
     Vector3 startingPosition;
@@ -24,6 +26,7 @@ public class OraOra : MonoBehaviour
         if (!Char.IsWhiteSpace(c)) return;
         if (goal > 0) {
             goal--;
+            // StopCoroutine(punch());
             StartCoroutine(punch());
         } else {
             WinStage();
@@ -37,26 +40,31 @@ public class OraOra : MonoBehaviour
     }
 
     void Start () {
-        startingPosition = enemy.position;
+        startingPosition = enemy.transform.position;
         AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position, 0.3f);  
-        GameManager.instance.StartStage(timeLimit);
+        // GameManager.instance.StartStage(timeLimit);
     }
 
     // Update is called once per frame
     void Update () {
         if (isBeingPunched) {
-            enemy.position = startingPosition + intensity * new Vector3 (
+            enemy.transform.position = startingPosition + intensity * new Vector3 (
                 Mathf.PerlinNoise(speed * Time.time, 1),
                 Mathf.PerlinNoise(speed * Time.time, 2),
                 0
             );
+        } else {
+            if (GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "OraOra") {
+                GetComponent<Animator>().SetBool("punching", false);
+            }
         }
         if (rotation) {
-            enemy.Rotate(0, 0, 1);
+            enemy.transform.Rotate(0, 0, 1);
         }
     }
 
     IEnumerator punch() {
+        GetComponent<Animator>().SetBool("punching", true);
         AudioSource.PlayClipAtPoint(oraOra, Camera.main.transform.position, 0.6f);
         isBeingPunched = true;
         yield return new WaitForSeconds(punchDuration);
@@ -69,9 +77,10 @@ public class OraOra : MonoBehaviour
         GetComponent<KeyPress>().deactivate();
         AudioSource.PlayClipAtPoint(lastOra, Camera.main.transform.position, 0.3f);
         AudioSource.PlayClipAtPoint(wryyy, Camera.main.transform.position, 0.3f);
-        StartCoroutine(1.5f.Tweeng((p)=>enemy.position=p, enemy.position, launchPosition));
-        StartCoroutine(1.5f.Tweeng((s)=>enemy.localScale=s, enemy.localScale, launchScale));
+        StartCoroutine(1.5f.Tweeng((p)=>enemy.transform.position=p, enemy.transform.position, launchPosition));
+        StartCoroutine(1.5f.Tweeng((s)=>enemy.transform.localScale=s, enemy.transform.localScale, launchScale));
         StartCoroutine(Rotate());
-        GameManager.instance.WinStage();
+        enemy.GetComponent<SpriteRenderer>().sprite = deadDio;
+        // GameManager.instance.WinStage();
     }
 }

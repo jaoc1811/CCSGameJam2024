@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6a6b9e866bf1734dbfc37fa129546f1
+guid: 4564fe5c12d643044923b13156aab6bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1782334720281787523
-    second: jotaro_0
+      213: -7164714864596747464
+    second: jojo_bizarre_adven__diamond_cloud_wallpaper_by_thetruemask_de79sn9-pre_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jotaro_0
+      name: jojo_bizarre_adven__diamond_cloud_wallpaper_by_thetruemask_de79sn9-pre_0
       rect:
         serializedVersion: 2
-        x: 411
-        y: 174
-        width: 1435
-        height: 1871
+        x: 0
+        y: 0
+        width: 1192
+        height: 670
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38cbd312cff1cb810800000000000000
-      internalID: 1782334720281787523
+      spriteID: 83bffba7ac1d19c90800000000000000
+      internalID: -7164714864596747464
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      jotaro_0: 1782334720281787523
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
