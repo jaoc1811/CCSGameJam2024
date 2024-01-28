@@ -13,11 +13,11 @@ public class Roses : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        GameManager.instance.StartStage();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger");
         currentRoses += 1;
         other.gameObject.GetComponent<Dragable>().deactivate();
         StartCoroutine(ReceiveRose());
@@ -35,18 +35,16 @@ public class Roses : MonoBehaviour
 
     void Blink(){
         spriteRenderer.sprite = BlinkSprite;
-        Debug.Log("blink");
     }
 
     void OpenEyes(){
         spriteRenderer.sprite = OpenEyesSprite;
-        Debug.Log("open eyes");
     }
 
     private void WinStage() {
         // TODO: Trigger success animation/sounds
         StartCoroutine(WinBlinks());
-        // GameManager.instance.WinStage();
+        GameManager.instance.WinStage();
     }
 
     IEnumerator WinBlinks() {
