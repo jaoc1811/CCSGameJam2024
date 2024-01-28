@@ -878,6 +878,7 @@ MonoBehaviour:
   garbage: {fileID: 2113825335}
   successSprite: {fileID: 6498120313624886972, guid: 2259294ccafbe534199b5158a3db2a4d, type: 3}
   failAnimation: {fileID: 2113825341}
+  hitSound: {fileID: 8300000, guid: d74aeab68a6df1742b13ca9ea45b055e, type: 3}
   clickable: 0
 --- !u!114 &612488918
 MonoBehaviour:
