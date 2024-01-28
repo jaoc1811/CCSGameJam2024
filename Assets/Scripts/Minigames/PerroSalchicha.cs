@@ -19,7 +19,7 @@ public class PerroSalchicha : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.StartStage(timeLimit);
+        GameManager.instance.StartStage(Color.black, timeLimit);
         inDog = false;
         lastPosition = hand.transform.position;
     }

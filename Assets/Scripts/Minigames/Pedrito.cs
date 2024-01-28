@@ -33,7 +33,7 @@ public class Pedrito : MonoBehaviour
 
     void Start () {
         startingPosition = npc.transform.position;
-        GameManager.instance.StartStage(timeLimit);
+        GameManager.instance.StartStage(Color.black, timeLimit);
     }
 
     // Update is called once per frame

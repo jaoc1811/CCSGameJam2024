@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int initialTime = 20;
     [SerializeField] int time = 20;
     [SerializeField] int selectTimer = 2;
+    public TMP_Text timeText;
 
     [Header("Curtains")]
     [SerializeField] RectTransform curtains;
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
         get => time;
         set {
             time = value;
-            // TODO: update UI
+            // UpdateUITimer(time);
         }
     }
 
@@ -74,11 +76,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(stage);
     }
 
-    public void StartStage(int stageTime = -1){
+    public void StartStage(Color timer_color, int stageTime = -1){
         Debug.Log("Starting stage");
         if (stageTime < 0) stageTime = initialTime;
         StageCleared = false;
         Time = stageTime;
+        // FindTimer();
+        // UpdateUITimerColor(timer_color);
         timerCoroutine = StartCoroutine(TimerRoutine());
     }
 
@@ -160,5 +164,19 @@ public class GameManager : MonoBehaviour
             nextMinigames[i] = nextMinigames[r];
             nextMinigames[r] = tmp;
         }
+    }
+
+    void FindTimer() {
+        Transform timer = GameObject.FindGameObjectWithTag("Timer").transform;
+        timeText = timer.GetComponent<TMP_Text>();
+        Debug.Log(timeText.text);
+    }
+
+    public void UpdateUITimer(int time) {
+        timeText.text = time.ToString();
+    }
+
+    public void UpdateUITimerColor(Color text_color) {
+        timeText.color = text_color;
     }
 }
