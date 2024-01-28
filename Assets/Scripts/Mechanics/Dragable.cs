@@ -7,6 +7,9 @@ public class Dragable : MonoBehaviour
 {
     Vector3 mousePosition;
     public bool active = true;
+    [SerializeField] AudioClip mouseDown;
+    [SerializeField] AudioClip mouseUp;
+    bool click;
 
     public void deactivate() {
         active = false;
@@ -18,7 +21,20 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseDown() {
         if (active) {
+            if (!click){
+                AudioSource.PlayClipAtPoint(mouseDown, Camera.main.transform.position, 0.3f);
+                click = true;
+            }
             mousePosition = Input.mousePosition - GetMousePos();
+        }
+    }
+
+    private void OnMouseUp() {
+        if (active) {
+            if (click){
+                AudioSource.PlayClipAtPoint(mouseUp, Camera.main.transform.position, 0.3f);
+                click = false;
+            }
         }
     }
 
