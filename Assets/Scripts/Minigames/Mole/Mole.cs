@@ -10,6 +10,8 @@ public class Mole : MonoBehaviour
     [SerializeField] float timeHiding = 1f;
     [SerializeField] float garbageChance = 0.1f;
     [SerializeField] Transform garbage;
+    [SerializeField] Sprite successSprite;
+    [SerializeField] Animator failAnimation;
     Transform currentMole;
     public bool clickable = false;
 
@@ -58,11 +60,14 @@ public class Mole : MonoBehaviour
     public void LoseStage() {
         // TODO: Trigger fail animation/sounds
         StopAllCoroutines();
+        failAnimation.enabled = true;
     }
 
     void WinStage() {
         // TODO: Trigger success animation/sounds
         StopAllCoroutines();
+        gameObject.GetComponent<SpriteRenderer>().sprite = successSprite;
+        gameObject.transform.localScale = new Vector3(1,1,1);
         GameManager.instance.WinStage();
     }
 

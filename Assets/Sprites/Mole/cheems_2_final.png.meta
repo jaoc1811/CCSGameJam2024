@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ea8efeb4b72ea549a924f809d5f7868
+guid: 2259294ccafbe534199b5158a3db2a4d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2613247888821195678
-    second: bomb_0
+      213: 6498120313624886972
+    second: cheems_2_final_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bomb_0
+      name: cheems_2_final_0
       rect:
         serializedVersion: 2
-        x: 382
-        y: 909
-        width: 2261
-        height: 2557
+        x: 25
+        y: 8
+        width: 708
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26ce5c404e0ebbbd0800000000000000
-      internalID: -2613247888821195678
+      spriteID: cbe7c592ff5fd2a50800000000000000
+      internalID: 6498120313624886972
       vertices: []
       indices: 
       edges: []
@@ -157,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bomb_0: -2613247888821195678
+      cheems_2_final_0: 6498120313624886972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
