@@ -511,6 +511,9 @@ MonoBehaviour:
   - {fileID: 273244888}
   - {fileID: 1284513928}
   nextLetterIndex: 0
+  typeSound: {fileID: 8300000, guid: 1c0e903cf565fa4489d8a7e2742c7689, type: 3}
+  sendSound: {fileID: 8300000, guid: 98b16e3595a60fb4c976a8dc14973a05, type: 3}
+  recieveSound: {fileID: 8300000, guid: 60f634eace7c6ba41bc3659c371de644, type: 3}
 --- !u!4 &967192545
 Transform:
   m_ObjectHideFlags: 0

@@ -163,6 +163,7 @@ MonoBehaviour:
   - Balloon
   - PerroSalchicha
   - Roses
+  - Typing
   initialTime: 8
   time: 10
   selectTimer: 3
