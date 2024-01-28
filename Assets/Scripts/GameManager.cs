@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [Header("Timer")]
     [SerializeField] int initialTime = 20;
     [SerializeField] int time = 20;
+    [SerializeField] int selectTimer = 2;
     Coroutine timerCoroutine = null;
     public int Time {
         get => time;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         if (instance == null) {
             instance = this;
+        } else {
+            Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         GameStarting = true;
         currentMinigames = new Queue<string>();
+        StartCoroutine(SelectMinigame());
     }
 
     void Update()
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ending stage");
         GameStarting = false;
         SceneManager.LoadScene(main);
+        StartCoroutine(SelectMinigame());
     }
 
     [ContextMenu("WinStage")]
@@ -94,6 +99,11 @@ public class GameManager : MonoBehaviour
             Time--;
         }
         EndStage();
+    }
+
+    IEnumerator SelectMinigame() {
+        yield return new WaitForSeconds(selectTimer);
+        SelectNextMinigame();
     }
 
     [ContextMenu("SelectNextMinigame")]

@@ -6,7 +6,8 @@ public class BalloonPump : MonoBehaviour
 {
     [SerializeField] float maxY = -0.3f;
     [SerializeField] float minY = -1.4f;
-    [SerializeField] Transform Balloon;
+    [SerializeField] Transform balloon;
+    [SerializeField] Transform clown;
     [SerializeField] float balloonInflate;
     [SerializeField] float balloonMaxScale;
     Vector3 initialPosition;
@@ -48,8 +49,8 @@ public class BalloonPump : MonoBehaviour
         }
         else if (other.name == "Down" && pumpable==true) {
             pumpable = false;
-            Balloon.localScale += Vector3.one*balloonInflate;
-            if (Balloon.localScale.x >= balloonMaxScale) {
+            balloon.localScale += Vector3.one*balloonInflate;
+            if (balloon.localScale.x >= balloonMaxScale) {
                 WinStage();
                 active = false;
             }
@@ -57,7 +58,7 @@ public class BalloonPump : MonoBehaviour
     }
 
     void WinStage() {
+        clown.GetComponent<Animator>().enabled = true;
         GameManager.instance.WinStage();
-        // Trigger success animation/sounds
     }
 }
