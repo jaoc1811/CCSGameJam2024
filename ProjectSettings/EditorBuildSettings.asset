@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Roses.unity
     guid: b40f88f6b6a09924e993b6e47cd16109
+  - enabled: 1
+    path: Assets/Scenes/Typing.unity
+    guid: 18a45d0165af57c48be8eb40de4dcf2a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
