@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e0fed1b3dbf48468fccf54c1a5beae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 15
+  timeLimit: 9
   lettersPool: ahj
   wordLength: 10
   text:
