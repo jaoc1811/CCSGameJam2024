@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mole : MonoBehaviour
 {
+    [SerializeField] int timeLimit = 8;
     [SerializeField] Transform[] holes;
     [SerializeField] float distanceToMove = 1;
     [SerializeField] float timeToMove = 0.5f;
@@ -16,7 +17,7 @@ public class Mole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.StartStage();
+        GameManager.instance.StartStage(Color.black, timeLimit);
         ComeOut();
     }
 

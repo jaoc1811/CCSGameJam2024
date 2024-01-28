@@ -7,6 +7,7 @@ public class Esquivo : MonoBehaviour
     [SerializeField] GameObject[] positionsAndScales;
     [SerializeField] GameObject pointer;
     [SerializeField] AudioClip esquivo;
+    [SerializeField] int timeLimit = 8;
     bool pointing = false;
     bool won = false;
     int pointingCount = 0;
@@ -15,7 +16,7 @@ public class Esquivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.StartStage(8);
+        GameManager.instance.StartStage(Color.white, timeLimit);
         int randomIndex = Random.Range(0, positionsAndScales.Length);
         transform.position = positionsAndScales[randomIndex].transform.position;
         transform.localScale = positionsAndScales[randomIndex].transform.localScale;

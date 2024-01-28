@@ -6,6 +6,7 @@ public class BalloonPump : MonoBehaviour
 {
     [SerializeField] float maxY = -0.3f;
     [SerializeField] float minY = -1.4f;
+    [SerializeField] int timeLimit = 8;
     [SerializeField] Transform balloon;
     [SerializeField] Transform clown;
     [SerializeField] float balloonInflate;
@@ -20,7 +21,7 @@ public class BalloonPump : MonoBehaviour
     void Start()
     {
         initialPosition = transform.position;
-        GameManager.instance.StartStage();
+        GameManager.instance.StartStage(Color.black, timeLimit);
     }
 
     public void deactivate() {

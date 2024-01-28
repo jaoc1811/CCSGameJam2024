@@ -41,7 +41,7 @@ public class OraOra : MonoBehaviour
     void Start () {
         startingPosition = enemy.transform.position;
         AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position, 0.3f);  
-        GameManager.instance.StartStage(timeLimit);
+        GameManager.instance.StartStage(Color.black, timeLimit);
     }
 
     // Update is called once per frame
