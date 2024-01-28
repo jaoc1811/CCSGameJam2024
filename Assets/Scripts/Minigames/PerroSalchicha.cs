@@ -28,6 +28,9 @@ public class PerroSalchicha : MonoBehaviour
     void FixedUpdate()
     {
         if (inDog) {
+            if (!GetComponent<AudioSource>().isPlaying) {
+                GetComponent<AudioSource>().Play();
+            }
             if ( hand.transform.position != lastPosition )
                 isMoving = true;
             else {
@@ -35,6 +38,7 @@ public class PerroSalchicha : MonoBehaviour
             }
         } else {
             isMoving = false;
+            GetComponent<AudioSource>().Pause();
         }
         lastPosition = hand.transform.position;
         if (isMoving) {
