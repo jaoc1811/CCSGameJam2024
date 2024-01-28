@@ -69,11 +69,17 @@ public class Typing : MonoBehaviour
 
     private void LoseStage() {
         lost = true;
+        for(int i=0; i < text.Length; i++) {
+            text[i].text = "";
+        }
         StartCoroutine(LoseRoutine());
     }
 
     private void WinStage() {
         GameManager.instance.WinStage();
+        for(int i=0; i < text.Length; i++) {
+            text[i].text = "";
+        }
         StartCoroutine(SendReceive());
     }
 
