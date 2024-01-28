@@ -45,7 +45,6 @@ public class Tickles : MonoBehaviour
             tickles = true;
             tickleCount++;
             if (tickleCount > 50) {
-                laugh = true;
                 WinStage();
             }
         } else {
@@ -56,13 +55,6 @@ public class Tickles : MonoBehaviour
             float rotation = Mathf.PingPong(Time.time * rotationSpeed, maxRotation) - (maxRotation/2);
             transform.eulerAngles = new Vector3(transform.eulerAngles.y,transform.eulerAngles.y,rotation);
         }
-
-        if (laugh) {
-            if (!GetComponent<AudioSource>().isPlaying) {
-                GetComponent<AudioSource>().PlayOneShot(laughSound);
-            }
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -74,6 +66,9 @@ public class Tickles : MonoBehaviour
     }
 
     private void WinStage() {
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().clip = laughSound;
+        GetComponent<AudioSource>().Play();
         otherFeet.GetComponent<Tickles>().winTickles = true;
         winTickles = true;
         feather.GetComponent<Dragable>().deactivate();
