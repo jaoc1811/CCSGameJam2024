@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      star_platinum_ora_2_0: 6074600460938285951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

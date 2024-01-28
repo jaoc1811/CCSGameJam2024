@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player")]
     public int lives;
+    [SerializeField] int stagesCleared = 0;
 
     [Header("Stage")]
     [SerializeField] bool stageCleared = false;
@@ -69,11 +70,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SelectNextgame());
     }
 
-    void Update()
-    {
-        
-    }
-
     public void LoadStage(string stage){
         SceneManager.LoadScene(stage);
     }
@@ -89,6 +85,7 @@ public class GameManager : MonoBehaviour
     public void EndStage(){
         Debug.Log("Ending stage");
         GameStarting = false;
+        stagesCleared += 1;
         StartCoroutine(LoadStageWithCurtains(main, true));
     }
 
@@ -121,8 +118,27 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator SelectNextgame() {
+        if (!gameStarting) {
+            if (stageCleared) {
+                // TODO: Trigger happy animation
+                Debug.Log("SUCCESS");
+            } else {
+                Debug.Log("FAIL");
+                loseLife();
+                // TODO: Lose life and trigger sad animation
+            }
+        }
         yield return new WaitForSeconds(selectTimer);
         SelectNextMinigame();
+    }
+
+    void loseLife() {
+        lives -= 1 ;
+        Transform livesSprites = GameObject.Find("Lives").transform;
+        livesSprites.GetChild(lives).GetComponent<Animator>().enabled = true;
+        if (lives <= 0) {
+            // trigger game over
+        }
     }
 
     [ContextMenu("SelectNextMinigame")]

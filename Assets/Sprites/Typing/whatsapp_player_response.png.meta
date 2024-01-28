@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      whatsapp_player_response_0: -8074277562891924443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
