@@ -10,6 +10,10 @@ public class OraOra : MonoBehaviour
     [SerializeField] float punchDuration = 0.2f;
     [SerializeField] int goal = 6;
     [SerializeField] int timeLimit = 8;
+    [SerializeField] AudioClip oraOra;
+    [SerializeField] AudioClip lastOra;
+    [SerializeField] AudioClip wryyy;
+    [SerializeField] AudioClip starPlatinum;
     bool isBeingPunched = false;
     bool rotation = false;
     Vector3 startingPosition;
@@ -34,6 +38,7 @@ public class OraOra : MonoBehaviour
 
     void Start () {
         startingPosition = enemy.position;
+        AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position);  
         GameManager.instance.StartStage(timeLimit);
     }
 
@@ -52,6 +57,9 @@ public class OraOra : MonoBehaviour
     }
 
     IEnumerator punch() {
+        if (!GetComponent<AudioSource>().isPlaying) {
+            GetComponent<AudioSource>().PlayOneShot(oraOra);
+        }
         isBeingPunched = true;
         yield return new WaitForSeconds(punchDuration);
         isBeingPunched = false;
@@ -59,6 +67,10 @@ public class OraOra : MonoBehaviour
 
     private void WinStage() {
         rotation = true;
+        GetComponent<AudioSource>().Stop();
+        GetComponent<KeyPress>().deactivate();
+        AudioSource.PlayClipAtPoint(lastOra, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(wryyy, Camera.main.transform.position);
         StartCoroutine(1.5f.Tweeng((p)=>enemy.position=p, enemy.position, launchPosition));
         StartCoroutine(1.5f.Tweeng((s)=>enemy.localScale=s, enemy.localScale, launchScale));
         StartCoroutine(Rotate());

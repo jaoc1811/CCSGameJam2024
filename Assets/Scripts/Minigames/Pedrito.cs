@@ -56,6 +56,7 @@ public class Pedrito : MonoBehaviour
     }
 
     private void WinStage() {
+        GetComponent<Clickable>().deactivate();
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().clip = meElectrocutastePedrito;   
         GetComponent<AudioSource>().Play();

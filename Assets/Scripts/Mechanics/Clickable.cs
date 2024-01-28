@@ -6,7 +6,15 @@ using UnityEngine.Rendering;
 
 public class Clickable : MonoBehaviour
 {
+    public bool active = true;
+
+    public void deactivate() {
+        active = false;
+    }
+
     private void OnMouseDown() {
-        BroadcastMessage("Click");
+        if (active) {
+            BroadcastMessage("Click");
+        }
     }
 }
