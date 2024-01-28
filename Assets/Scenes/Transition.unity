@@ -164,6 +164,7 @@ MonoBehaviour:
   - PerroSalchicha
   initialTime: 8
   time: 10
+  selectTimer: 3
 --- !u!4 &307029790
 Transform:
   m_ObjectHideFlags: 0
