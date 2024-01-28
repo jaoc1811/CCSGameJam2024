@@ -37,7 +37,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] int initialTime = 20;
     [SerializeField] int time = 20;
     [SerializeField] int selectTimer = 2;
+
+    [Header("Curtains")]
+    [SerializeField] Transform curtains;
+    [SerializeField] float curtainsTimer;
+
     Coroutine timerCoroutine = null;
+
     public int Time {
         get => time;
         set {
@@ -57,9 +63,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(curtains);
         GameStarting = true;
         currentMinigames = new Queue<string>();
-        StartCoroutine(SelectMinigame());
+        StartCoroutine(SelectNextgame());
     }
 
     void Update()
@@ -73,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void StartStage(int stageTime = -1){
         Debug.Log("Starting stage");
-        if (stageTime == -1) stageTime = initialTime;
+        if (stageTime < 0) stageTime = initialTime;
         StageCleared = false;
         Time = stageTime;
         timerCoroutine = StartCoroutine(TimerRoutine());
@@ -82,8 +89,7 @@ public class GameManager : MonoBehaviour
     public void EndStage(){
         Debug.Log("Ending stage");
         GameStarting = false;
-        SceneManager.LoadScene(main);
-        StartCoroutine(SelectMinigame());
+        StartCoroutine(LoadStageWithCurtains(main, true));
     }
 
     [ContextMenu("WinStage")]
@@ -101,7 +107,20 @@ public class GameManager : MonoBehaviour
         EndStage();
     }
 
-    IEnumerator SelectMinigame() {
+    IEnumerator LoadStageWithCurtains(string stage, bool hub = false) {
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.position = p, new Vector3(0, 10, 0), new Vector3(0, 0, 0)));
+        Debug.Log("DOWN CURTAINS");
+        yield return new WaitForSeconds(curtainsTimer);
+        LoadStage(stage);
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.position = p, new Vector3(0, 0, 0), new Vector3(0, 10, 0)));
+        Debug.Log("UP CURTAINS");
+        yield return new WaitForSeconds(curtainsTimer);
+        if (hub) {
+            StartCoroutine(SelectNextgame());
+        }
+    }
+
+    IEnumerator SelectNextgame() {
         yield return new WaitForSeconds(selectTimer);
         SelectNextMinigame();
     }
@@ -113,8 +132,9 @@ public class GameManager : MonoBehaviour
             currentMinigames = new Queue<string>(nextMinigames);
         }
         string nextMinigame = currentMinigames.Dequeue();
-        LoadStage(nextMinigame);
+        StartCoroutine(LoadStageWithCurtains(nextMinigame));
     }
+
 
     void ShuffleMinigames() {
         int count = nextMinigames.Count;

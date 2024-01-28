@@ -38,7 +38,7 @@ public class OraOra : MonoBehaviour
 
     void Start () {
         startingPosition = enemy.position;
-        AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position);  
+        AudioSource.PlayClipAtPoint(starPlatinum, Camera.main.transform.position, 0.3f);  
         GameManager.instance.StartStage(timeLimit);
     }
 
@@ -57,9 +57,7 @@ public class OraOra : MonoBehaviour
     }
 
     IEnumerator punch() {
-        if (!GetComponent<AudioSource>().isPlaying) {
-            GetComponent<AudioSource>().PlayOneShot(oraOra);
-        }
+        AudioSource.PlayClipAtPoint(oraOra, Camera.main.transform.position, 0.6f);
         isBeingPunched = true;
         yield return new WaitForSeconds(punchDuration);
         isBeingPunched = false;
@@ -69,8 +67,8 @@ public class OraOra : MonoBehaviour
         rotation = true;
         GetComponent<AudioSource>().Stop();
         GetComponent<KeyPress>().deactivate();
-        AudioSource.PlayClipAtPoint(lastOra, Camera.main.transform.position);
-        AudioSource.PlayClipAtPoint(wryyy, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(lastOra, Camera.main.transform.position, 0.3f);
+        AudioSource.PlayClipAtPoint(wryyy, Camera.main.transform.position, 0.3f);
         StartCoroutine(1.5f.Tweeng((p)=>enemy.position=p, enemy.position, launchPosition));
         StartCoroutine(1.5f.Tweeng((s)=>enemy.localScale=s, enemy.localScale, launchScale));
         StartCoroutine(Rotate());
