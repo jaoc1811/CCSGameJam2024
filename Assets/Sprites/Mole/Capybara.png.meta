@@ -198,6 +198,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -946,7 +972,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Capybara_0: 8975901767701198696
+      Capybara_1: -7006901843705009624
+      Capybara_10: 1531791485942450324
+      Capybara_11: 4315887754636379029
+      Capybara_12: -3923886522353834836
+      Capybara_13: 1695256534309641247
+      Capybara_14: -4321453027750260287
+      Capybara_15: -7456996807240109607
+      Capybara_16: 3636513045377947431
+      Capybara_17: -6681453392140656175
+      Capybara_18: 7181509341235063254
+      Capybara_19: -7350357606366915595
+      Capybara_2: -2829398415770508612
+      Capybara_20: -317712777111322186
+      Capybara_21: -8856554432175519491
+      Capybara_22: 755363050995377851
+      Capybara_23: -8589719254817976389
+      Capybara_24: 8644498278019305827
+      Capybara_25: -7523229686050770301
+      Capybara_26: -7771970451064034875
+      Capybara_27: 40854322123215829
+      Capybara_28: -1445224905227261974
+      Capybara_29: -6990118083983563458
+      Capybara_3: -2799493884227400430
+      Capybara_30: -1293851537815163176
+      Capybara_31: 3976099398723734838
+      Capybara_32: 3689087587858137127
+      Capybara_33: 119626004652184462
+      Capybara_34: 8991339770638635874
+      Capybara_4: -8283291142173095050
+      Capybara_5: 5718856772061676998
+      Capybara_6: 262133251266090241
+      Capybara_7: -5451271113263059263
+      Capybara_8: -4879222654287807266
+      Capybara_9: -7576631764005303406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

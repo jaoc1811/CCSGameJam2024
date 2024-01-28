@@ -6,7 +6,9 @@ public class Esquivo : MonoBehaviour
 {
     [SerializeField] GameObject[] positionsAndScales;
     [SerializeField] GameObject pointer;
+    [SerializeField] AudioClip esquivo;
     bool pointing = false;
+    bool won = false;
     int pointingCount = 0;
 
 
@@ -21,9 +23,10 @@ public class Esquivo : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (pointing) {
+        if (pointing && !won) {
             pointingCount++;
             if (pointingCount > 60) {
+                won = true;
                 WinStage();
             }
         } 
@@ -45,9 +48,12 @@ public class Esquivo : MonoBehaviour
     }
 
     private void WinStage() {
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().clip = esquivo;
+        GetComponent<AudioSource>().Play();
         pointer.GetComponent<Point>().deactivate();
         StartCoroutine(Turn());
-        // GameManager.instance.WinStage();
+        GameManager.instance.WinStage();
         pointing = false;
     }
     
