@@ -133,16 +133,15 @@ public class GameManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(selectTimer);
-        SelectNextMinigame();
+        if (lives > 0) {
+            SelectNextMinigame();
+        }
     }
 
     void loseLife() {
         lives -= 1 ;
         Transform livesSprites = GameObject.Find("Lives").transform;
         livesSprites.GetChild(lives).GetComponent<Animator>().enabled = true;
-        if (lives <= 0) {
-            // trigger game over
-        }
     }
 
     [ContextMenu("SelectNextMinigame")]
