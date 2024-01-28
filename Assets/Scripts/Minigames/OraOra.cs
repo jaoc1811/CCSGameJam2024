@@ -57,9 +57,7 @@ public class OraOra : MonoBehaviour
     }
 
     IEnumerator punch() {
-        if (!GetComponent<AudioSource>().isPlaying) {
-            GetComponent<AudioSource>().PlayOneShot(oraOra);
-        }
+        AudioSource.PlayClipAtPoint(oraOra, Camera.main.transform.position, 0.6f);
         isBeingPunched = true;
         yield return new WaitForSeconds(punchDuration);
         isBeingPunched = false;

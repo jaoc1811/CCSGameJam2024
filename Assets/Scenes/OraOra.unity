@@ -277,7 +277,7 @@ MonoBehaviour:
   punchDuration: 0.2
   goal: 20
   timeLimit: 8
-  oraOra: {fileID: 8300000, guid: 76396961cfc156b47b3d66038ea737fc, type: 3}
+  oraOra: {fileID: 8300000, guid: dd38c926e119e4048b6517bfb3f6b6e4, type: 3}
   lastOra: {fileID: 8300000, guid: 851de79a1fa5c474e852b51c8751af84, type: 3}
   wryyy: {fileID: 8300000, guid: aeef20266d71c76418061c4e6413d0c3, type: 3}
   starPlatinum: {fileID: 8300000, guid: 3e08e36833f0add48a1305e35159980b, type: 3}
