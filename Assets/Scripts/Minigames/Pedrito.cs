@@ -11,12 +11,16 @@ public class Pedrito : MonoBehaviour
     [SerializeField] float electrocuteDuration = 0.2f;
     [SerializeField] int goal = 6;
     [SerializeField] int timeLimit = 8;
+    [SerializeField] AudioClip meElectrocutaste;
+    [SerializeField] AudioClip meElectrocutastePedrito;
+    [SerializeField] AudioClip click;
 
     bool isElectrocuting = false;
 
     Vector3 startingPosition;
 
     void Click () {
+        AudioSource.PlayClipAtPoint(click, Camera.main.transform.position);
         if (goal > 0) {
             goal--;
             StartCoroutine(electrocute());
@@ -30,6 +34,7 @@ public class Pedrito : MonoBehaviour
         startingPosition = npc.transform.position;
         GameManager.instance.StartStage(timeLimit);
     }
+
     // Update is called once per frame
     void Update () {
         if (isElectrocuting) {
@@ -42,13 +47,19 @@ public class Pedrito : MonoBehaviour
     }
 
     IEnumerator electrocute() {
+        if (!GetComponent<AudioSource>().isPlaying) {
+            GetComponent<AudioSource>().PlayOneShot(meElectrocutaste);
+        }
         isElectrocuting = true;
         yield return new WaitForSeconds(electrocuteDuration);
         isElectrocuting = false;
     }
 
     private void WinStage() {
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().clip = meElectrocutastePedrito;   
+        GetComponent<AudioSource>().Play();
         isElectrocuting = true;
-        GameManager.instance.WinStage();
+        // GameManager.instance.WinStage();
     }
 }
