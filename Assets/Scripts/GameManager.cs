@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator StartGame() {
-        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 1080, 0)));
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 900, 0)));
         yield return new WaitForSeconds(1);
         StartCoroutine(SelectNextgame());
     }
@@ -117,11 +117,11 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator LoadStageWithCurtains(string stage, bool hub = false) {
-        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 1080, 0), new Vector3(0, 0, 0)));
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 900, 0), new Vector3(0, 0, 0)));
         Debug.Log("DOWN CURTAINS");
         yield return new WaitForSeconds(curtainsTimer);
         LoadStage(stage);
-        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 1080, 0)));
+        StartCoroutine(curtainsTimer.Tweeng((p) => curtains.localPosition = p, new Vector3(0, 0, 0), new Vector3(0, 900, 0)));
         Debug.Log("UP CURTAINS");
         yield return new WaitForSeconds(curtainsTimer);
         if (hub) {
